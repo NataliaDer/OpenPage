@@ -1,5 +1,6 @@
 package Tests;
 
+import Pages.CartPage;
 import Pages.LoginPage;
 import Pages.ProductsPage;
 import org.openqa.selenium.WebDriver;
@@ -17,6 +18,7 @@ public class BaseTest {
     SoftAssert softAssert;
     LoginPage loginPage;
     ProductsPage productsPage;
+    CartPage cartPage;
 
     @BeforeMethod
     public void setup() {
@@ -39,6 +41,7 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         loginPage = new LoginPage(driver);
         productsPage = new ProductsPage(driver);
+        cartPage = new CartPage(driver);
     }
 
     @AfterMethod(alwaysRun = true)
