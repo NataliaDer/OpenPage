@@ -13,9 +13,10 @@ public class CartPage extends BasePage {
     private final By ITEM_NAME = By.className("inventory_item_name");
     private final By ITEM_DESCRIPTION = By.className("inventory_item_desc");
     private final By ITEM_PRICE = By.className("inventory_item_price");
-    private final By BUTTON_REMOVE = By.id("remove-sauce-labs-bike-light");
+    private final By BUTTON_REMOVE = By.id("remove-sauce-labs-bolt-t-shirt");
     private final By BUTTON_CONTINUE = By.id("continue-shopping");
     private final By BUTTON_CHECKOUT = By.id("checkout");
+
 
     public CartPage(WebDriver driver) {
         super(driver);
@@ -48,5 +49,7 @@ public class CartPage extends BasePage {
     public boolean isButtonCheckout() {
         return driver.findElement(BUTTON_CHECKOUT).isDisplayed();
     }
+
+
 }
 

@@ -12,8 +12,6 @@ public class CartPageTest extends BaseTest {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
         productsPage.isPageOpened();
-        driver.findElement(By.id("add-to-cart-sauce-labs-backpack")).click();
-        driver.findElement(By.className("shopping_cart_link")).click();
     }
 
     @Test
@@ -21,8 +19,7 @@ public class CartPageTest extends BaseTest {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
         productsPage.isPageOpened();
-        driver.findElement(By.id("add-to-cart-sauce-labs-backpack")).click();
-        driver.findElement(By.className("shopping_cart_link")).click();
+        productsPage.addToCartProduct("Sauce Labs Bolt T-Shirt");
         cartPage.open();
         Assert.assertTrue(cartPage.isQuantityLable());
     }
@@ -32,8 +29,7 @@ public class CartPageTest extends BaseTest {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
         productsPage.isPageOpened();
-        driver.findElement(By.id("add-to-cart-sauce-labs-backpack")).click();
-        driver.findElement(By.className("shopping_cart_link")).click();
+        productsPage.addToCartProduct("Sauce Labs Bolt T-Shirt");
         cartPage.open();
         Assert.assertTrue(cartPage.isDescriptionLable());
 
@@ -44,8 +40,7 @@ public class CartPageTest extends BaseTest {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
         productsPage.isPageOpened();
-        driver.findElement(By.id("add-to-cart-sauce-labs-backpack")).click();
-        driver.findElement(By.className("shopping_cart_link")).click();
+        productsPage.addToCartProduct("Sauce Labs Bolt T-Shirt");
         cartPage.open();
         Assert.assertTrue(cartPage.isButtonRemove());
     }
@@ -55,8 +50,7 @@ public class CartPageTest extends BaseTest {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
         productsPage.isPageOpened();
-        driver.findElement(By.id("add-to-cart-sauce-labs-backpack")).click();
-        driver.findElement(By.className("shopping_cart_link")).click();
+        productsPage.addToCartProduct("Sauce Labs Bolt T-Shirt");
         cartPage.open();
         Assert.assertTrue(cartPage.isIconCart());
     }
@@ -66,8 +60,7 @@ public class CartPageTest extends BaseTest {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
         productsPage.isPageOpened();
-        driver.findElement(By.id("add-to-cart-sauce-labs-backpack")).click();
-        driver.findElement(By.className("shopping_cart_link")).click();
+        productsPage.addToCartProduct("Sauce Labs Bolt T-Shirt");
         cartPage.open();
         Assert.assertTrue(cartPage.isButtonCheckout());
     }
