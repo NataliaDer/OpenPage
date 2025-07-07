@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite  name="Sauce Demo Smoke Test" thread-count="2" parallel="tests">
+    <listeners>
+        <listener class-name="Tests.AnnotationTransformer"></listener>
+    </listeners>
+    <test name="Thread1">
+        <parameter name="browser" value="Chrome"></parameter>
+        <classes>
+            <class name="Tests.LoginTest"/>
+        </classes>
+    </test> <!-- Test -->
+    <test name="Thread2">
+        <parameter name="browser" value="Chrome"></parameter>
+        <classes>
+            <class name="Tests.CartPageTest"/>
+            <class name="Tests.LocatorsTest"/>
+        </classes>
+    </test> <!-- Test -->
+</suite>
