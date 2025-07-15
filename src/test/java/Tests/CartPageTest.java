@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-
 public class CartPageTest extends BaseTest {
 
     @Test(priority = 1, description = "openning the page", testName = "positive test. Opening the page correctly",
@@ -70,4 +69,3 @@ public class CartPageTest extends BaseTest {
         Assert.assertTrue(cartPage.isButtonCheckout());
     }
 }
-
