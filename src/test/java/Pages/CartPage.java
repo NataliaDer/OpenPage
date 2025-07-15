@@ -17,7 +17,6 @@ public class CartPage extends BasePage {
     private final By BUTTON_CONTINUE = By.id("continue-shopping");
     private final By BUTTON_CHECKOUT = By.id("checkout");
 
-
     public CartPage(WebDriver driver) {
         super(driver);
     }
@@ -49,7 +48,4 @@ public class CartPage extends BasePage {
     public boolean isButtonCheckout() {
         return driver.findElement(BUTTON_CHECKOUT).isDisplayed();
     }
-
-
 }
-
