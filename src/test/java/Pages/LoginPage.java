@@ -2,29 +2,42 @@ package Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage extends BasePage {
+    private WebDriverWait wait;
 
     private final By LOGIN_FIELD = By.id("user-name");
     private final By PASSWORD_FIELD = By.id("password");
     private final By LOGIN_BUTTON = By.id("login-button");
-    private final By ERROR_MESSAGE = By.tagName("h3");
 
     public LoginPage(WebDriver driver) {
         super(driver);
     }
-
-    public void open() {
+    @Override
+    public LoginPage open() {
         driver.get(BASE_URL);
+        return this;
     }
 
-    public void login(String user, String password) {
+    @Override
+    public LoginPage isPageOpened(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(LOGIN_FIELD));
+        return this;
+    }
+    public LoginPage enterUserName(String user){
         driver.findElement(LOGIN_FIELD).sendKeys(user);
-        driver.findElement(PASSWORD_FIELD).sendKeys(password);
-        driver.findElement(LOGIN_BUTTON).click();
+        return this;
     }
 
-    public String getErrorMessage() {
-        return driver.findElement(ERROR_MESSAGE).getText();
+    public LoginPage enterPassword(String password) {
+        driver.findElement(PASSWORD_FIELD).sendKeys(password);
+        return this;
+    }
+
+    public ProductsPage clickLogin() {
+        driver.findElement(LOGIN_BUTTON).click();
+        return new ProductsPage(driver);
     }
 }

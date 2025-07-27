@@ -2,6 +2,8 @@ package Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.LoadableComponent;
 
 public class CartPage extends BasePage {
 
@@ -20,32 +22,34 @@ public class CartPage extends BasePage {
     public CartPage(WebDriver driver) {
         super(driver);
     }
-
-    public void open() {
+    @Override
+    public CartPage open() {
         driver.get(BASE_URL + "cart.html");
+        return this;
+    }
+    @Override
+    public CartPage isPageOpened() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(TITLE));
+        return this;
     }
 
-    public boolean isPageOpened() {
-        return driver.findElement(TITLE).isDisplayed();
+    public CartPage isQuantityLable() {
+        driver.findElement(QUANTITY_TITLE).isDisplayed(); return this;
     }
 
-    public boolean isQuantityLable() {
-        return driver.findElement(QUANTITY_TITLE).isDisplayed();
+    public CartPage isButtonRemove() {
+        driver.findElement(BUTTON_REMOVE).isDisplayed(); return this;
     }
 
-    public boolean isButtonRemove() {
-        return driver.findElement(BUTTON_REMOVE).isDisplayed();
+    public CartPage isIconCart() {
+        driver.findElement(CART_ICON).isDisplayed(); return this;
     }
 
-    public boolean isIconCart() {
-        return driver.findElement(CART_ICON).isDisplayed();
+    public CartPage isDescriptionLable() {
+         driver.findElement(DESCRIPTION_lABLE).isDisplayed();return this;
     }
 
-    public boolean isDescriptionLable() {
-        return driver.findElement(DESCRIPTION_lABLE).isDisplayed();
-    }
-
-    public boolean isButtonCheckout() {
-        return driver.findElement(BUTTON_CHECKOUT).isDisplayed();
+    public CartPage isButtonCheckout() {
+        driver.findElement(BUTTON_CHECKOUT).isDisplayed();return this;
     }
 }
