@@ -1,10 +1,10 @@
-package Pages;
+package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class cartPage extends basePage {
+public class CartPage extends BasePage {
 
     private final By TITLE = By.xpath("//*[contains(text(), 'Your Cart')]");
     private final By CART_ICON = By.className("shopping_cart_link");
@@ -18,37 +18,37 @@ public class cartPage extends basePage {
     private final By BUTTON_CONTINUE = By.id("continue-shopping");
     private final By BUTTON_CHECKOUT = By.id("checkout");
 
-    public cartPage(WebDriver driver) {
+    public CartPage(WebDriver driver) {
         super(driver);
     }
     @Override
-    public cartPage open() {
+    public CartPage open() {
         driver.get(BASE_URL + "cart.html");
         return this;
     }
     @Override
-    public cartPage isPageOpened() {
+    public CartPage isPageOpened() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(TITLE));
         return this;
     }
 
-    public cartPage isQuantityLable() {
+    public CartPage isQuantityLable() {
         driver.findElement(QUANTITY_TITLE).isDisplayed(); return this;
     }
 
-    public cartPage isButtonRemove() {
+    public CartPage isButtonRemove() {
         driver.findElement(BUTTON_REMOVE).isDisplayed(); return this;
     }
 
-    public cartPage isIconCart() {
+    public CartPage isIconCart() {
         driver.findElement(CART_ICON).isDisplayed(); return this;
     }
 
-    public cartPage isDescriptionLable() {
+    public CartPage isDescriptionLable() {
          driver.findElement(DESCRIPTION_lABLE).isDisplayed();return this;
     }
 
-    public cartPage isButtonCheckout() {
+    public CartPage isButtonCheckout() {
         driver.findElement(BUTTON_CHECKOUT).isDisplayed();return this;
     }
 }
