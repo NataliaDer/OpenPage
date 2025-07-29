@@ -7,8 +7,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class ProductsPage extends BasePage {
-    public ProductsPage(WebDriver driver) {
+public class productsPage extends basePage {
+    public productsPage(WebDriver driver) {
         super(driver);
     }
 
@@ -16,19 +16,19 @@ public class ProductsPage extends BasePage {
     private final String PRODUCT_TSHIRT = "//div[text()='Sauce Labs Bolt T-Shirt']//ancestor::" +
             "div[@data-test='inventory-item']//button[text()='Add to cart']";
     @Override
-    public ProductsPage open() {
+    public productsPage open() {
         driver.get(BASE_URL + "/inventory.html");
         return this;
     }
     @Override
-    public ProductsPage isPageOpened() {
+    public productsPage isPageOpened() {
         driver.findElement(TITLE).isDisplayed();
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.visibilityOfElementLocated(TITLE));
         return this;
     }
 
-    public ProductsPage addToCartProduct(String product){
+    public productsPage addToCartProduct(String product){
         driver.findElement(By.xpath(String.format(PRODUCT_TSHIRT))).click();
         return this;
     }

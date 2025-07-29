@@ -1,8 +1,8 @@
 package Tests;
 
-import Pages.CartPage;
-import Pages.LoginPage;
-import Pages.ProductsPage;
+import Pages.cartPage;
+import Pages.loginPage;
+import Pages.productsPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -17,9 +17,9 @@ import java.util.HashMap;
 public class BaseTest {
     WebDriver driver;
     SoftAssert softAssert;
-    LoginPage loginPage;
-    ProductsPage productsPage;
-    CartPage cartPage;
+    loginPage loginPage;
+    productsPage productsPage;
+    cartPage cartPage;
 
     @Parameters({"browser"})
     @BeforeMethod (alwaysRun = true)
@@ -40,9 +40,9 @@ public class BaseTest {
         }
         softAssert = new SoftAssert();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        loginPage = new LoginPage(driver);
-        productsPage = new ProductsPage(driver);
-        cartPage = new CartPage(driver);
+        loginPage = new loginPage(driver);
+        productsPage = new productsPage(driver);
+        cartPage = new cartPage(driver);
     }
 
     @AfterMethod(alwaysRun = true)
