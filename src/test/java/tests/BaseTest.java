@@ -21,8 +21,8 @@ public class BaseTest {
     LoginPage loginPage;
     ProductsPage productsPage;
     CartPage cartPage;
-    String user = System.getProperty("user");
-    String password = System.getProperty("password");
+    String user = System.getProperty("user", PropertyReader.getProperty("user"));
+    String password = System.getProperty("password",PropertyReader.getProperty("password"));
 
     @Parameters({"browser"})
     @BeforeMethod(alwaysRun = true)
