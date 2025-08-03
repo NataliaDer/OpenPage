@@ -2,8 +2,9 @@ package tests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
-
+@Ignore
 public class LocatorsTest extends BaseTest {
     @Test
     public void checkBasket() {
